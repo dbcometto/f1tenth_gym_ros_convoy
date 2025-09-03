@@ -3,6 +3,11 @@ This file contains some useful information
 
 ## Running the simulation with a GPU
 
+If the image needs to be built, run
+```bash
+$ docker build -t f1tenth_gym_ros -f Dockerfile .
+```
+
 First, run
 ```bash
 $ docker compose up
@@ -19,6 +24,8 @@ Then, running
 $ ros2 launch f1tenth_gym_ros gym_bridge_launch.py
 ```
 brings up the simulation with RViz on the host.
+
+Notice that it takes a few moments to load in the robot model, but it does so eventually.
 
 ## Running the simulation without a GPU
 
@@ -126,3 +133,7 @@ Okay, tested out the new docker compose file, which handles the command automati
 $ es2gears
 ```
 automatically outputted the gears to the host!  And likewise with rviz!
+
+### ROS2 Foxy vs Humble
+
+The simulation worked completely with ROS2 Foxy installed on the docker container.  The host network outside could see the topics.  However, I switched all of the "Foxy"s over to "Humble" and it seems like everything is still working.  No definitive testing has been done, but this will help ensure consistency throughout the system.
