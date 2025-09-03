@@ -50,5 +50,10 @@ RUN source /opt/ros/foxy/setup.bash && \
     rosdep install -i --from-path src --rosdistro foxy -y && \
     colcon build
 
+RUN echo 'if [ -n "$PS1" ]; then' >> /root/.bashrc \
+    && echo '    source /opt/ros/foxy/setup.bash && echo "Sourced ROS Foxy"' >> /root/.bashrc \
+    && echo '    source /sim_ws/install/setup.bash && echo "Sourced /sim_ws workspace"' >> /root/.bashrc \
+    && echo 'fi' >> /root/.bashrc
+
 WORKDIR '/sim_ws'
 ENTRYPOINT ["/bin/bash"]
