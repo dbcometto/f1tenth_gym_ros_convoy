@@ -42,8 +42,8 @@ RUN cd f1tenth_gym && \
     pip3 install -e .
 
 # ros2 gym bridge
-RUN mkdir -p sim_ws/src/f1tenth_gym_ros
-COPY . /sim_ws/src/f1tenth_gym_ros
+RUN mkdir -p sim_ws/src/f1tenth_gym_ros_convoy
+COPY . /sim_ws/src/f1tenth_gym_ros_convoy
 RUN source /opt/ros/humble/setup.bash && \
     cd sim_ws/ && \
     apt-get update --fix-missing && \
